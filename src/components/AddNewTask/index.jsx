@@ -26,7 +26,7 @@ const AddNewTask = ({ setTask }) => {
     const send = {
       title: body,
     };
-    const response = await fetch('http://localhost:3000/api/addtask', {
+    const response = await fetch('http://192.168.208.1:3000/api/addtask', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

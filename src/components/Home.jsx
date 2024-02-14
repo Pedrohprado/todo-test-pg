@@ -8,7 +8,7 @@ const Home = () => {
 
   React.useEffect(() => {
     const getInfo = async () => {
-      const response = await fetch('http://localhost:3000/api/todos');
+      const response = await fetch('http://192.168.208.1:3000/api/todos');
       const data = await response.json();
       setValue(data);
     };
@@ -23,7 +23,7 @@ const Home = () => {
           const send = {
             done: !item.done,
           };
-          await fetch(`http://localhost:3000/api/todo/${id}`, {
+          await fetch(`http://192.168.208.1:3000/api/todo/${id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
