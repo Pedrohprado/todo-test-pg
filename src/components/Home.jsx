@@ -23,7 +23,7 @@ const Home = () => {
           const send = {
             done: !item.done,
           };
-          await fetch(`http://192.168.208.1:3000/api/todo/${id}`, {
+          await fetch(`https://192.168.208.1:3000/api/todo/${id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
