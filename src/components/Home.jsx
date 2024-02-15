@@ -1,6 +1,7 @@
 import React from 'react';
 import AddNewTask from './AddNewTask';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [value, setValue] = React.useState(null);
@@ -45,7 +46,8 @@ const Home = () => {
       <ul className='bg-gray-200 w-5/6 max-h-5/6 overflow-y-auto p-3'>
         {value
           ? value.map(({ id, title, done }) => (
-              <div
+              <Link
+                to={`/task/${id}`}
                 key={id}
                 className=' flex w-full justify-between items-center mb-2'
               >
@@ -56,7 +58,7 @@ const Home = () => {
                   onChange={() => handleCheckBox(id)}
                   id={id}
                 />
-              </div>
+              </Link>
             ))
           : null}
       </ul>
