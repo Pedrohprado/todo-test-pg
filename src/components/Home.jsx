@@ -8,9 +8,7 @@ const Home = () => {
 
   React.useEffect(() => {
     const getInfo = async () => {
-      const response = await fetch('http://192.168.208.1:3000/api/todos', {
-        credentials: 'include',
-      });
+      const response = await fetch('https://192.168.112.1:3000/api/todos');
       const data = await response.json();
       setValue(data);
     };
@@ -30,7 +28,6 @@ const Home = () => {
             headers: {
               'Content-Type': 'application/json',
             },
-            credentials: 'include',
             body: JSON.stringify(send),
           });
         };

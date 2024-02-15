@@ -31,7 +31,6 @@ const AddNewTask = ({ setTask }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include',
       body: JSON.stringify(send),
     });
     const data = await response.json();
