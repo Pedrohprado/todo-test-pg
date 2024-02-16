@@ -41,26 +41,28 @@ const Home = () => {
     console.log(updateItems);
   }
   return (
-    <div className=' w-screen h-screen flex flex-col items-center justify-center bg-white'>
+    <div className=' w-full h-2/3 absolute bottom-0 right-0 rounded-t-lg flex flex-col items-center justify-center bg-white'>
       <h2>home page</h2>
-      <ul className='bg-gray-200 w-5/6 max-h-5/6 overflow-y-auto p-3'>
-        {value
-          ? value.map(({ id, title, done }) => (
-              <Link
-                to={`/task/${id}`}
-                key={id}
-                className=' flex w-full justify-between items-center mb-2'
-              >
-                <li>{title}</li>
-                <input
-                  type='checkbox'
-                  checked={done}
-                  onChange={() => handleCheckBox(id)}
-                  id={id}
-                />
-              </Link>
-            ))
-          : null}
+      <ul className='bg-gray-200 w-5/6 h-1/4 max-h-5/6 overflow-y-auto p-3'>
+        {value ? (
+          value.map(({ id, title, done }) => (
+            <Link
+              to={`/task/${id}`}
+              key={id}
+              className=' flex w-full justify-between items-center mb-2'
+            >
+              <li>{title}</li>
+              <input
+                type='checkbox'
+                checked={done}
+                onChange={() => handleCheckBox(id)}
+                id={id}
+              />
+            </Link>
+          ))
+        ) : (
+          <p className=' font-normal text-sm'>sem tarefas por aqui!</p>
+        )}
       </ul>
 
       <Button
