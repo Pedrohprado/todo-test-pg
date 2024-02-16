@@ -40,10 +40,10 @@ const Home = () => {
     setValue(updateItems);
     console.log(updateItems);
   }
+
   return (
-    <div className=' w-full h-2/3 absolute bottom-0 right-0 rounded-t-lg flex flex-col items-center justify-center bg-white'>
-      <h2>home page</h2>
-      <ul className='bg-gray-200 w-5/6 h-1/4 max-h-5/6 overflow-y-auto p-3'>
+    <div className=' w-full h-3/4 absolute bottom-0 right-0 rounded-t-lg flex flex-col items-center justify-center bg-white'>
+      <ul className='bg-gray-200 w-5/6 max-h-42 overflow-y-auto p-3'>
         {value ? (
           value.map(({ id, title, done }) => (
             <Link
@@ -66,9 +66,9 @@ const Home = () => {
       </ul>
 
       <Button
-        name='add new task'
+        name='+'
         setTask={() => setTask(true)}
-        className={' text-white p-2 bg-black rounded font-medium'}
+        className='text-white py-2 px-4 bg-black rounded font-medium fixed bottom-2 right-7'
       />
       {task ? <AddNewTask setTask={setTask} /> : null}
     </div>
