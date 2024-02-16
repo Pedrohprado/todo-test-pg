@@ -43,22 +43,24 @@ const Home = () => {
 
   return (
     <div className=' w-full h-3/4 absolute bottom-0 right-0 rounded-t-lg flex flex-col items-center justify-center bg-white'>
-      <ul className='bg-gray-200 w-5/6 max-h-42 overflow-y-auto p-3'>
+      <ul className=' w-5/6 max-h-42 overflow-y-auto p-2'>
         {value ? (
           value.map(({ id, title, done }) => (
-            <Link
-              to={`/task/${id}`}
+            <div
               key={id}
-              className=' flex w-full justify-between items-center mb-2'
+              className=' flex w-full justify-between items-center mb-3 border py-1 px-4 rounded'
             >
-              <li>{title}</li>
+              <Link to={`/task/${id}`} className='w-5/6'>
+                <li>{title}</li>
+              </Link>
+
               <input
                 type='checkbox'
                 checked={done}
                 onChange={() => handleCheckBox(id)}
                 id={id}
               />
-            </Link>
+            </div>
           ))
         ) : (
           <p className=' font-normal text-sm'>sem tarefas por aqui!</p>
@@ -68,7 +70,7 @@ const Home = () => {
       <Button
         name='+'
         setTask={() => setTask(true)}
-        className='text-white py-2 px-4 bg-black rounded font-medium fixed bottom-2 right-7'
+        className={` text-white py-2 px-4 bg-black rounded font-medium fixed bottom-2 right-7`}
       />
       {task ? <AddNewTask setTask={setTask} /> : null}
     </div>
